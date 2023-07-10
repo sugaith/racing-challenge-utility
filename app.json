@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "e1b75ef6-f0a1-49ea-8a5f-b850aec8b71d"
+      }
+    },
+    "owner": "thiago.dasilva",
+    "slug": "racers-challenge",
+    "android": {
+      "package": "com.thiago.dasilva.racerschallenge"
+    },
+    "ios": {
+      "bundleIdentifier": "com.thiago.dasilva.racerschallenge"
+    }
+  }
+}
