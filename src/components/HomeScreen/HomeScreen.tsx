@@ -1,13 +1,14 @@
 import React, { useCallback, useEffect, useMemo } from "react";
-import { ActivityIndicator, Text, Pressable, View } from "react-native";
+import { ActivityIndicator, Text, View } from "react-native";
 import { useLazyQuery } from "@apollo/client";
-import { useStore } from "../Store";
+import { useStore } from "../../Store";
 import {
   generateRacerWinLikelihoodCalculator,
   sortRacersByChance,
-} from "../utils";
-import { QUERY_RACERS, Racer, RacersResponse } from "../api/Racers";
+} from "../../utils";
+import { QUERY_RACERS, Racer, RacersResponse } from "../../api/Racers";
 import { RacersList } from "./RacersList";
+import { Button } from "../Button/Button";
 
 const HomeScreen = () => {
   const currentRacing = useStore((state) => state.currentRacing);
@@ -58,9 +59,7 @@ const HomeScreen = () => {
 
   return (
     <View>
-      <Pressable onPress={() => queryRacers()}>
-        <Text> Get new Racers </Text>
-      </Pressable>
+      <Button label={"Get new Racers"} onPress={() => queryRacers()} />
 
       {loading ? (
         <ActivityIndicator size="large" color={"#b017d5"} />
@@ -69,9 +68,7 @@ const HomeScreen = () => {
       )}
 
       {currentRacing.length > 0 && !loading && (
-        <Pressable onPress={startRacing}>
-          <Text>Start Racing!</Text>
-        </Pressable>
+        <Button label={"Start Racing!"} onPress={startRacing} />
       )}
     </View>
   );

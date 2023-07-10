@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Racer } from "./HomeScreen/HomeScreen";
+import { Racer } from "./api/Racers";
 
 type StoreType = {
   currentRacing: Racer[];
