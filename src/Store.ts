@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Racer } from "./HomeScreen";
+import { Racer } from "./HomeScreen/HomeScreen";
 
 type StoreType = {
   currentRacing: Racer[];
@@ -14,9 +14,6 @@ export const useStore = create<StoreType>((set) => ({
 
   setRacerWinChance: (winChance: number, racerPos: number) =>
     set((state) => {
-      console.log("win chance:", winChance);
-      console.log("racerPos:", racerPos);
-
       const newRacing = [...state.currentRacing];
       newRacing[racerPos].winChance = winChance;
 

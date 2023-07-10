@@ -1,7 +1,8 @@
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import HomeScreen from "./src/HomeScreen";
+import { HomeScreen } from "./src/HomeScreen/HomeScreen";
 
 const Stack = createStackNavigator();
 const screenOptions = {
