@@ -7,7 +7,6 @@ const style = StyleSheet.create({
     margin: 12,
     padding: 6,
     backgroundColor: "#29128e",
-    width: "50%",
     borderRadius: 9,
   },
   buttonText: {

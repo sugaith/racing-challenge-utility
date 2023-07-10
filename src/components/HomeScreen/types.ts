@@ -6,6 +6,7 @@ type RacerListProps = {
 
 type RacerItemProps = {
   racer: Racer;
+  index: number;
 };
 
 const homeScreenOptions = {

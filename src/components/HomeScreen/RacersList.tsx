@@ -11,7 +11,7 @@ const RacersList = ({ racers }: RacerListProps) => {
   return (
     <FlatList
       data={racers}
-      renderItem={({ item }) => <RacerItem racer={item} />}
+      renderItem={({ item, index }) => <RacerItem racer={item} index={index} />}
       keyExtractor={(racer) => racer.name}
     />
   );

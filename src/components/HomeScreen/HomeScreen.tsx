@@ -9,6 +9,7 @@ import {
 import { QUERY_RACERS, Racer, RacersResponse } from "../../api/Racers";
 import { RacersList } from "./RacersList";
 import { Button } from "../Button/Button";
+import { homeScreenStyle } from "./styles";
 
 const HomeScreen = () => {
   const currentRacing = useStore((state) => state.currentRacing);
@@ -58,7 +59,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <View>
+    <View style={homeScreenStyle.container}>
       <Button label={"Get new Racers"} onPress={() => queryRacers()} />
 
       {loading ? (

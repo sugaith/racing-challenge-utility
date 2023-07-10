@@ -1,13 +1,17 @@
 import { RacerItemProps } from "./types";
 import { ActivityIndicator, Pressable, Text, View } from "react-native";
 import React from "react";
+import { racerItemStyle } from "./styles";
 
-const RacerItem = ({ racer }: RacerItemProps) => {
+const RacerItem = ({ racer, index }: RacerItemProps) => {
   const { name, length, color, weight, winChance } = racer;
 
+  const rowStyle =
+    index % 2 ? { backgroundColor: "#7b63de" } : { backgroundColor: "#e1e1e1" };
+
   return (
-    <Pressable>
-      <View>
+    <View style={[racerItemStyle.container, rowStyle]}>
+      <View style={racerItemStyle.racerInfo}>
         <Text>
           <Text>Name: </Text>
           {name}
@@ -25,9 +29,16 @@ const RacerItem = ({ racer }: RacerItemProps) => {
           {color}
         </Text>
       </View>
-      {winChance === "loading" && <ActivityIndicator />}
-      {typeof winChance === "number" && <Text>{winChance * 100}</Text>}
-    </Pressable>
+      <View style={racerItemStyle.racerResult}>
+        {winChance === "loading" && <ActivityIndicator />}
+        {typeof winChance === "number" && (
+          <>
+            <Text>{"Change of Win:"}</Text>
+            <Text>{Math.round(winChance * 10000) / 100} %</Text>
+          </>
+        )}
+      </View>
+    </View>
   );
 };
 
