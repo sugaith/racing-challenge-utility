@@ -33,7 +33,7 @@ const RacerItem = ({ racer, index }: RacerItemProps) => {
         {winChance === "loading" && <ActivityIndicator />}
         {typeof winChance === "number" && (
           <>
-            <Text>{"Change of Win:"}</Text>
+            <Text>{"Chance of Win:"}</Text>
             <Text>{Math.round(winChance * 10000) / 100} %</Text>
           </>
         )}

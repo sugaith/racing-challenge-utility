@@ -12,6 +12,12 @@
     },
     "ios": {
       "bundleIdentifier": "com.thiago.dasilva.racerschallenge"
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/e1b75ef6-f0a1-49ea-8a5f-b850aec8b71d"
     }
   }
 }
