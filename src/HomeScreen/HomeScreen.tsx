@@ -1,8 +1,11 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import { ActivityIndicator, Text, Pressable, View } from "react-native";
 import { useLazyQuery } from "@apollo/client";
 import { useStore } from "../Store";
-import { generateRacerWinLikelihoodCalculator } from "../likelihoodCalculator";
+import {
+  generateRacerWinLikelihoodCalculator,
+  sortRacersByChance,
+} from "../utils";
 import { QUERY_RACERS, Racer, RacersResponse } from "../api/Racers";
 import { RacersList } from "./RacersList";
 
@@ -20,6 +23,7 @@ const HomeScreen = () => {
 
   useEffect(() => {
     if (!data?.racers) return;
+
     setCurrentRacing(data.racers);
   }, [data, setCurrentRacing]);
 
@@ -34,6 +38,12 @@ const HomeScreen = () => {
       racerWinCalculator(saveResult);
     });
   }, [currentRacing, setRacerWinChance]);
+
+  const sortedRacers = useMemo(() => {
+    const racingCopy = [...currentRacing];
+
+    return racingCopy.sort(sortRacersByChance);
+  }, [currentRacing]);
 
   if (error) {
     return (
@@ -55,7 +65,7 @@ const HomeScreen = () => {
       {loading ? (
         <ActivityIndicator size="large" color={"#b017d5"} />
       ) : (
-        <RacersList racers={currentRacing} />
+        <RacersList racers={sortedRacers} />
       )}
 
       {currentRacing.length > 0 && !loading && (
