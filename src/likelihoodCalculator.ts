@@ -9,4 +9,4 @@ const generateRacerWinLikelihoodCalculator = () => {
   };
 };
 
-export { generateRacerWinLikelihoodCalculator }
+export { generateRacerWinLikelihoodCalculator };
